@@ -124,27 +124,19 @@ function Employee(name, email, hireDate) {
     this.name = name;
     this.age = age;
     this.email = email;
-    this.savedPosts = []
+    this.savedPosts = savedPosts
     }
     
 
   User.prototype.addSavedPost = function(id, title, rating){
-      this.id = id,
-      this.title = title,
-      this.rating = this.rating
-      }
+    this.savedPosts.push(
+      {
+      id: id,
+      title: title,
+      rating: rating
+      })};
 
-  const newObj = new User(id, title, rating);
-  savedPosts.push(newObj)
-
-
-
-
-
-
-
-
-  
+    
 
   ////////// PROBLEM 6 //////////
   
@@ -155,11 +147,11 @@ function Employee(name, email, hireDate) {
   // Code here
 
 
-  // User.prototype.removeSavedPost = function(id){
-  //   let matchObj = this.savedPosts.find(e => e === id);
-  //   this.savedPosts.splice(matchObj, 1)
+  User.prototype.removeSavedPost = function(id){
+    let matchObj = this.savedPosts.findIndex(e => e === id);
+    this.savedPosts.splice(matchObj, 1)
 
-  // }
+  }
 
 
 
@@ -173,3 +165,8 @@ function Employee(name, email, hireDate) {
   
   // Code here
   
+  User.prototype.changePostRating = function(id,newRate){
+    let matchObj= this.savedPosts.findIndex(e => e.id ===id);
+    this.savedPosts[matchObj].rating = newRate
+
+  }
