@@ -131,14 +131,16 @@ function Employee(name, email, hireDate) {
   User.prototype.addSavedPost = function(id, title, rating){
       this.id = id,
       this.title = title,
-      this.rating = function(num){
-        return Math.floor(Math.random() * 5)
-      } 
+      this.rating = this.rating
+      }
 
-  }
+  const newObj = new User(id, title, rating);
+  savedPosts.push(newObj)
 
-  const newObj = new User(id, title, rating)
-  
+
+
+
+
 
 
 
@@ -151,11 +153,13 @@ function Employee(name, email, hireDate) {
   // Use this id to find and remove the matching object in the savedPosts array.
   
   // Code here
-  User.prototype.removeSavedPost = function(id){
-    let matchObj = this.savedPosts.find(e => e === id);
-    this.savedPosts.splice(matchObj, 1)
 
-  }
+
+  // User.prototype.removeSavedPost = function(id){
+  //   let matchObj = this.savedPosts.find(e => e === id);
+  //   this.savedPosts.splice(matchObj, 1)
+
+  // }
 
 
 
